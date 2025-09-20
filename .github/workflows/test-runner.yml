@@ -1,0 +1,17 @@
+name: Test Self-Hosted Runner
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: self-hosted  # self-hosted runnerを指定
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run a simple command
+        run: |
+          echo "Hello from your Windows PC!"
+          dir
+          python --version
+        shell: powershell
